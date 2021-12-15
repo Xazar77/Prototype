@@ -13,9 +13,7 @@ const DomElement = function (selector, height, width, bg, fontSize) {
 };
 DomElement.prototype.createElem = function () {
 
-    // const point = '.selector',
-    //     grid = '#selector';
-
+   
     if (this.selector[0] === '.') {
         const div = document.createElement('div');
         div.style.cssText = `
@@ -53,15 +51,8 @@ const domElem2 = new DomElement('#main', '300px', '300px', 'blue', '30px');
 
 domElem1.createElem();
 domElem2.createElem();
-// console.log(domElem1.createElem());
 
 console.log(domElem1);
 
 
 
-
-//   const point = '.selector',
-//       grid = '#selector';
-// point[0];
-// console.log(point[0]);
-// console.log(grid[0]);
