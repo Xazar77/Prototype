@@ -1,12 +1,18 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const DomElement = function (selector, height, width, bg, fontSize) {
+    let element = null;
+    let elementX = 0;
+    let elementY = 0;
+    const DomElement = function (selector, height, width, bg, fontSize, top, left) {
         this.selector = selector,
             this.height = height,
             this.width = width,
             this.bg = bg,
-            this.fontSize = fontSize
+            this.fontSize = fontSize,
+            this.top = top,
+            this.left = left
+
 
 
     };
@@ -15,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (this.selector[0] === '.') {
             const div = document.createElement('div');
-            div.classList.add(this.selector);
+            div.classList.add(this.selector.replace('.', ''));
             div.style.cssText = `
                 height: ${this.height};
                 width: ${this.width};
@@ -28,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (this.selector[0] === '#') {
             const p = document.createElement('p');
-            p.id = this.selector;
+            p.id = this.selector.replace('#', '');
             p.style.cssText = `
                 height: ${this.height};
                 width: ${this.width};
@@ -44,12 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     DomElement.prototype.createSquare = function () {
         const div = document.createElement('div');
+        div.classList.add(this.selector.replace('.', ''));
         div.style.cssText = `
             position: absolute;
             height: ${this.height};
             width: ${this.width};
             background: ${this.bg};
+            top: ${this.top};
+            left: ${this.left};
             `;
+        element = div;
         document.body.append(div);
     }
 
@@ -60,12 +70,37 @@ document.addEventListener("DOMContentLoaded", () => {
     domElem1.createElem();
     domElem2.createElem();
 
-    // document.addEventListener('DomContentLoaded', (е) => {
 
-    const square = new DomElement('.block', '100px', '100px', 'grey');
+
+    const square = new DomElement('.square', '100px', '100px', 'grey', '0', '400px', '400px');
     square.createSquare();
+
+    window.addEventListener("keydown", (e) => {
+
+        e = e || window.event;
+                
+
+        switch (e.keyCode) {
+            case 37:
+                
+                element.style.left = ((parseInt(element.style.left) - 10) + 'px');
+                break;
+            case 39:
+                
+                element.style.left = ((parseInt(element.style.left) + 10) + 'px');
+                break;
+            case 38:
+               
+                element.style.top = ((parseInt(element.style.top) - 10) + 'px');
+                break;
+            case 40:
+               
+                element.style.top = ((parseInt(element.style.top) + 10) + 'px');
+                break;
+
+        }
+
+       
+    });
+
 });
-
-
-
-// }); 
