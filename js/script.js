@@ -1,17 +1,15 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", () => {
-    let element = null;
-    let elementX = 0;
-    let elementY = 0;
+  
     const DomElement = function (selector, height, width, bg, fontSize, top, left) {
         this.selector = selector,
-            this.height = height,
-            this.width = width,
-            this.bg = bg,
-            this.fontSize = fontSize,
-            this.top = top,
-            this.left = left
+        this.height = height,
+        this.width = width,
+        this.bg = bg,
+        this.fontSize = fontSize,
+        this.top = top,
+        this.left = left
 
 
 
