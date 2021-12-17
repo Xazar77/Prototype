@@ -1,15 +1,17 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", () => {
-  
+
+    let element = null;
+
     const DomElement = function (selector, height, width, bg, fontSize, top, left) {
         this.selector = selector,
-        this.height = height,
-        this.width = width,
-        this.bg = bg,
-        this.fontSize = fontSize,
-        this.top = top,
-        this.left = left
+            this.height = height,
+            this.width = width,
+            this.bg = bg,
+            this.fontSize = fontSize,
+            this.top = top,
+            this.left = left
 
 
 
@@ -76,29 +78,29 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("keydown", (e) => {
 
         e = e || window.event;
-                
+
 
         switch (e.keyCode) {
             case 37:
-                
+
                 element.style.left = ((parseInt(element.style.left) - 10) + 'px');
                 break;
             case 39:
-                
+
                 element.style.left = ((parseInt(element.style.left) + 10) + 'px');
                 break;
             case 38:
-               
+
                 element.style.top = ((parseInt(element.style.top) - 10) + 'px');
                 break;
             case 40:
-               
+
                 element.style.top = ((parseInt(element.style.top) + 10) + 'px');
                 break;
 
         }
 
-       
+
     });
 
 });
